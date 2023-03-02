@@ -66,7 +66,8 @@ a{
     padding: .5rem 1rem 0 0;
     transition: .5s;z-index: var(--z-fixed)
 }
-.nav{height: 100%;display: flex;
+.nav{
+    height: 100%;display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden
@@ -122,10 +123,12 @@ a{
     height:100vh
 }
 @media screen and (min-width: 768px){
-    body{margin: calc(var(--header-height) + 1rem) 0 0 0;
+    body{
+        margin: calc(var(--header-height) + 1rem) 0 0 0;
         padding-left: calc(var(--nav-width) + 2rem)
     }
-    .header{height: calc(var(--header-height) + 1rem);
+    .header{
+        height: calc(var(--header-height) + 1rem);
         padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
     }
     .header_img{

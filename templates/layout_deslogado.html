@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
+    <title>Sign Up/Sign In</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #4723d9;">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="#">Blog</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          </div>
+        </div>
+      </nav>
+    <main class="container mt-5">
+      <!--pegando a mensagem passada no metodo-->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        <!--verificando se messages é empty-->  
+        {% if messsage %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{category}}">
+              {{messages}}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      {% block form %}
+      {% endblock form %}
+
+    </main>
+    
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</html>

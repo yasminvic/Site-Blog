@@ -1,0 +1,47 @@
+{% extends "layout_deslogado.html" %}
+{% block form %}
+<form method="POST" action="">
+    {{form.hidden_tag()}}
+    <div class="form-group mt-3">
+      {{form.email.label}}
+
+        {% if form.email.errors %}
+            {{form.email(class="form-control is-invalid", placeholder="Enter Email")}}
+            <div class="invalid-feedback">
+            {% for error in form.email.errors %}
+                    <span> {{error}} </span>
+            {% endfor %}
+            </div>
+
+        {%else%}
+            {{form.email(class="form-control", placeholder="Enter Email")}}   
+        {% endif %}
+
+        
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group mt-3">
+      {{form.password.label}}
+
+        {% if form.email.errors %}
+            {{form.password(class="form-control is-invalid", placeholder="Enter Password")}}
+            <div class="invalid-feedback">
+            {% for error in form.password.errors %}
+                    <span> {{error}} </span>
+            {% endfor %}
+            </div>
+
+        {%else%}
+            {{form.password(class="form-control", placeholder="Enter Password")}}   
+        {% endif %}
+      
+    </div>
+    <div class="form-group float-end mt-3 mb-5">
+        <p>Don't Have an Account?</p>
+        <a class="btn btn-warning btn-block w-100" href="{{url_for('register')}}">Sign Up</a>
+    </div>
+    <div class="form-group mt-3">
+        {{form.btn_submit(class="btn btn-outline-primary btn-block w-100")}}
+    </div>   
+</form>
+{% endblock form %}
